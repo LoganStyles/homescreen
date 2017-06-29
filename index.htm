@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Home</title>
+<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="public/css/notif_animate.css" rel="stylesheet" type="text/css" />
+<link href="public/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="app_sidebar" class="sidenav">
+  <a href="#" id="closelauncher" class="closebtn">&times;</a>
+  <a href="#">Profile</a>
+  <a href="#">Manage Apps</a>
+  <a href="#">Inbox</a>
+  <a href="#">Support</a>
+</div>
+
+
+<div class="icon-bar">
+  <a class="active" id="launcher" href="#"><i class="fa fa-home"></i></a> 
+  <a class="" id="notify_loader" href="#"><i class="fa fa-inbox"></i></a> 
+</div>
+
+<script src="public/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="public/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="public/js/bootstrap-notify.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	 $(document).ready(function(){
+      //launch sidebar
+      $('body').on('click','#launcher',function(){
+        $('#app_sidebar').css('width','250px');
+      });
+
+      //hide sidebar
+      $('body').on('click','#closelauncher',function(){
+        $('#app_sidebar').css('width','0px');
+      });
+
+      //notifications
+      $('body').on('click','#notify_loader',function(){      
+          $.notify({
+          icon: 'public/ico/120.png',
+          
+          message: 'A New Update is Now Available, click to download.',
+          url: 'http://127.0.0.1:8000/home'
+          },{
+            type: 'minimalist',
+            delay: 5000,
+            icon_type: 'image',
+            showProgressbar: true,
+            placement: {
+              from: "bottom",
+              align: "right"
+            },
+            animate: {
+              enter: 'animated fadeInRight',
+              exit: 'animated fadeOutRight'
+            },
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<img data-notify="icon" class="img-circle pull-left">' +
+              '<span data-notify="title">{1}</span>' +
+              '<span data-notify="message">{2}</span>' +
+            '</div>'
+          });
+
+      });
+
+       });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "the home screen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+    "express":"*",
+    "express-handlebars":"*",
+    "handlebars":"*",
+    "mongodb":"*",
+    "mongoose":"*",
+    "bcryptjs":"*",
+    "cookie-parser":"*",
+    "body-parser":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoganStyles/homescreen.git"
+  },
+  "keywords": [
+    "home"
+  ],
+  "author": "emmanuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoganStyles/homescreen/issues"
+  },
+  "homepage": "https://github.com/LoganStyles/homescreen#readme",
+  "bolt":{
+    "displayName": "Home",
+    "main":"bolt-index.js",
+    "index": "/",
+    "extensions": {
+      "/home": "/"
+    }
+  }
+}
